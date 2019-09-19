@@ -19,7 +19,7 @@ void init(void)
 /* ----------------------------------------------------------------------- */
 
 /* ----------------------------------------------------------------------- */
-void display(void)
+void display(void, int i)
 {
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glPushMatrix();
@@ -41,6 +41,10 @@ void listenMouseClicked(int button, int state, int x, int y)
     glutPostRedisplay();
   }
 }
+void reshape(int x, int y) {
+  glViewport( 0, 0, x, y);
+  glutPostRedisplay();
+}
 /* ----------------------------------------------------------------------- */
 
 int main(int argc, char *argv[])
@@ -53,6 +57,7 @@ int main(int argc, char *argv[])
   init();
   glutDisplayFunc(display);
   glutMouseFunc(listenMouseClicked);
+  glutReshapeFunc(reshape);
   glutMainLoop();
 }
 

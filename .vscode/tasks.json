@@ -42,6 +42,26 @@
             "problemMatcher": [
                 "$gcc"
             ]
-        }
+        },
+        {
+            "label": "build lab 3",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "./Lab03/main.c",
+                "-lglu32",
+                "-lglut32",
+                "-lopengl32",
+                "-o",
+                "lab03"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
     ]
 }
