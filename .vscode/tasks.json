@@ -1,6 +1,4 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
         {
@@ -63,5 +61,65 @@
                 "$gcc"
             ]
         },
+        {
+            "label": "build lab 4 koch_snowflake",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "./Lab04/koch_snowflake.c",
+                "-lglu32",
+                "-lglut32",
+                "-lopengl32",
+                "-o",
+                "koch_snowflake"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "build lab 4 cardioid",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "./Lab04/cardioid.c",
+                "-lglu32",
+                "-lglut32",
+                "-lopengl32",
+                "-o",
+                "cardioid"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "build lab 4 rose",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "./Lab04/rose.c",
+                "-lglu32",
+                "-lglut32",
+                "-lopengl32",
+                "-o",
+                "rose"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
     ]
 }
