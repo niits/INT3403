@@ -6,16 +6,22 @@
 #include <stdio.h>
 
 const GLfloat PI = 3.1415;
-int K = 1;
+int K = 10;
 void init(void)
 {
     glClearColor(1.0, 1.0, 1.0, 0.0);
     glColor3f(0.0, 0.0, 0.0);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluOrtho2D(-10, 10, -10, 10);
+    gluOrtho2D(-20, 20, -15, 15);
 }
-
+void drawCircle(GLfloat centerX, GLfloat centerY, GLfloat radius)
+{
+    for (float i = 0; i <= 2; i += 0.01)
+    {
+        glVertex2f(centerX + radius * cos(PI * i), centerY + radius * sin(PI * i));
+    }
+}
 void display(void)
 {
     GLfloat x = 0;
@@ -23,11 +29,10 @@ void display(void)
     GLfloat theta = 0;
     glClear(GL_COLOR_BUFFER_BIT);
     glBegin(GL_LINE_STRIP);
-    for (theta = 0; theta < 2 * PI; theta += 0.01 * PI)
+    for (theta = 0; theta < 2 * PI; theta += 0.02 * PI)
     {
-        x = K * (1 + cos(theta)) * cos(theta);
-        y = K * (1 + cos(theta)) * sin(theta);
-        glVertex2f(x, y);
+        GLfloat radius = K * (1 + cos(theta)) / 2;
+        drawCircle(radius * cos(theta), radius * sin(theta), radius);
     }
     glEnd();
     glFlush();
@@ -37,7 +42,6 @@ int main(int argc, char *argv[])
 {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-    scanf("%d", &K);
     glutInitWindowSize(640, 480);
     glutInitWindowPosition(100, 150);
     glutCreateWindow("Lab 04");
