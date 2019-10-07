@@ -120,6 +120,26 @@
             "problemMatcher": [
                 "$gcc"
             ]
+        },
+        {
+            "label": "build lab 5 dinosaur",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "./lab05/dinosaur.cpp",
+                "-lglu32",
+                "-lglut32",
+                "-lopengl32",
+                "-o",
+                "dinosaur"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
         }
     ]
 }
